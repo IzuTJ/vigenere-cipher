@@ -27,20 +27,28 @@ const sBox = [
     ['z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y' ]
 ];
 
-var input = prompt("What do you want to encrypt?");
-var key = prompt("What is the encryption key?");
+var input = "";
+var key = "";
 var output = "";
 const keyln = key.length;
 
-for( var i = 0; key.length < input.length; i++){
-    if(i==keyln) i = 0;
-    key = key + key[i];
-}
+let form  = document.forms[0];
 
-for( var i = 0, x=0, y=0; i<input.length; i++){
-    x = sBox[0].indexOf(input[i]);
-    y = sBox[0].indexOf(key[i]);
-    output = output + sBox[x][y];
-}
+form.addEventListener('submit', (event) => {
 
-alert(output);
+    input = document.getElementById('message').value;
+    key = document.getElementById('key').value;
+
+    for( var i = 0; key.length < input.length; i++){
+        if(i==keyln) i = 0;
+        key = key + key[i];
+    }
+    
+    for( var i = 0, x=0, y=0; i<input.length; i++){
+        x = sBox[0].indexOf(input[i]);
+        y = sBox[0].indexOf(key[i]);
+        output = output + sBox[x][y];
+    }
+
+    alert(output);
+});

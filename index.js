@@ -31,6 +31,7 @@ var input = "";
 var key = "";
 var output = "";
 const keyln = key.length;
+var textOut = document.getElementById('encrypted');
 
 let form  = document.forms[0];
 
@@ -49,5 +50,19 @@ function encrypt(){
         output = output + sBox[x][y];
     }
 
-    document.getElementById('encrypted').value = output;
+    textOut.value = output;
+}
+
+function copyText(){
+    textOut.value = output;
+    textOut.select();
+    textOut.setSelectionRange(0, 99999);
+
+    try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Fallback: Copying text command was ' + msg);
+    } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+    }
 }

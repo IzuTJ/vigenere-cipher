@@ -6,13 +6,15 @@
     <title>Vigenere</title>
 </head>
 <body>
-    <form action="">
+    <form method="post">
         <label for="message">Message:</label><br>
-        <input type="text" id="message" name="fname"><br>
+        <input type="text" id="message"><br>
         <label for="key">Key:</label><br>
-        <input type="text" id="key" name="lname"><br>
-        <input type="submit" value="Submit">
-    </form> 
+        <input type="text" id="key"><br>
+        <input type="button" value="Encrypt" onclick="encrypt()">
+    </form>
+    <br>
+    <input type="text" id="encrypted"> 
     <script src="index.js"></script>
 </body>
 </html>

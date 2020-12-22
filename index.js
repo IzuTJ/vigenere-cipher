@@ -34,8 +34,7 @@ const keyln = key.length;
 
 let form  = document.forms[0];
 
-form.addEventListener('submit', (event) => {
-
+function encrypt(){
     input = document.getElementById('message').value;
     key = document.getElementById('key').value;
 
@@ -50,5 +49,5 @@ form.addEventListener('submit', (event) => {
         output = output + sBox[x][y];
     }
 
-    alert(output);
-});
+    document.getElementById('encrypted').value = output;
+}

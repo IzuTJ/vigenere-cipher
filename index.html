@@ -9,44 +9,43 @@
     body{
         background-color: black;
     }
-    form{
+    *   {
         text-align: center;
     }
-    input[type=text]{
-        color: rgb(232, 230, 227);
+    
+    input, label{
+        color: rgb(167, 167, 167);
+        padding: 8px;
+        margin: 8px;
+        border-radius: 5px;
+        border: none;
+    }
+	input[type=text]{
+		background-color: rgb(56, 56, 56);
         width: 75%;
-        padding: 8px;
-        margin: 8px;
-        border-radius: 5px;
-        border: none;
-    }
-    input[type=button]{
-        color: rgb(232, 230, 227);
-        padding: 8px;
-        margin: 8px;
-        border-radius: 5px;
-        border: none;
-    }
+	}
+	input[type=button]{
+		color:black;
+	}
     #key{
         width: 20ch;
     }
     #encrypt{
-        background-color: rgb(66, 245, 108);
+        background-color: rgb(69, 243, 109);
     }
     #copy{
-        background-color: rgb(66, 153, 245);
+        background-color: rgb(53, 141, 235);
     }
 </style>
 <body>
-    <form method="post">
-        <label for="message">Message:</label><br>
-        <input type="text" id="message"><br>
-        <label for="key">Key:</label><br>
-        <input type="text" id="key"><br>
-        <input type="button" id="encrypt" value="Encrypt" onclick="encrypt()"><br>
-        <input type="text" id="encrypted"><br>
-        <input type="button" id="copy" value="Copy to Clipboard" onclick="copyText()">
-    </form>
+    
+    <label for="message">Message:</label><br>
+    <input type="text" id="message"><br>
+    <label for="key">Key:</label><br>
+    <input type="text" id="key"><br>
+    <input type="button" id="encrypt" value="Encrypt" onclick="encrypt()"><br>
+	<input type="text" id="encrypted"><br>
+	<input type="button" id="copy" value="Copy to Clipboard" onclick="copyText()">
     
     <script src="index.js"></script>
 </body>

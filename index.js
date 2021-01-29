@@ -1,16 +1,19 @@
 var input = "";
 var key = "";
 var output = "";
-const keyln = key.length;
-var textOut = document.getElementById('encrypted');
+var inputElement = document.getElementById('message');
+var keyElement = document.getElementById('key');
+var outputElement = document.getElementById('encrypted');
 
 let form  = document.forms[0];
 
 function encrypt(){
 	output = "";
+	const keyln = key.length;
+
 	//take inputs from textfields in the webpage
-    input = document.getElementById('message').value;
-    key = document.getElementById('key').value;
+    input = inputElement.value;
+    key = keyElement.value;
 
 	//equalize the length of message and key by repeating key
 	for( var i = 0; key.length < input.length; i++){
@@ -19,19 +22,26 @@ function encrypt(){
     }
 	
 	//find x and y coordinates in matrix for message and key respectively and substitute
-    for( var i = 0, x=0, y=0; i<input.length; i++){
+    for( var i = x = y = 0; i<input.length; i++){
         x = sBox[0].indexOf(input[i]);
         y = sBox[0].indexOf(key[i]);
         output = output + sBox[x][y];
     }
 
-    textOut.value = output;
+    outputElement.value = output;
+}
+
+function clear(){
+	output = "";
+	inputElement.value = "";
+	keyElement.value = "";
+	outputElement.value = "";
 }
 
 function copyText(){
-    textOut.value = output;
-    textOut.select();
-    textOut.setSelectionRange(0, 99999);
+    outputElement.value = output;
+    outputElement.select();
+    outputElement.setSelectionRange(0, 99999);
 
     try {
         var successful = document.execCommand('copy');

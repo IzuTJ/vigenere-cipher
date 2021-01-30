@@ -28,14 +28,16 @@ function encrypt(){
         output = output + sBox[x][y];
     }
 
-    outputElement.value = output;
+	outputElement.value = output;
+	console.log("Encrypt was executed.")
 }
 
-function clear(){
+function clearAllFields(){
 	output = "";
 	inputElement.value = "";
 	keyElement.value = "";
 	outputElement.value = "";
+	console.log("Clear was executed.");
 }
 
 function copyText(){
